@@ -1,10 +1,3 @@
-from ast import Or
-from hashlib import new
-from pickle import NONE
-from stringprep import c9_set
-from tkinter import BOTTOM
-from xml.sax import default_parser_list
-from cv2 import DISOpticalFlow_PRESET_FAST
 from manim import *
 import numpy as np
 import math
@@ -1485,7 +1478,7 @@ class DrawPolygonBase(ThreeDScene):
 
         return unit
     
-    def drawCircleAndPolygon(self, centre: np.ndarray, radius: float, numberOfPoints: int, fillColor = NONE, strokeColor = WHITE ):
+    def drawCircleAndPolygon(self, centre: np.ndarray, radius: float, numberOfPoints: int, fillColor = None, strokeColor = WHITE ):
         # baseRadius is the circumscribe circle radius 
         # of the base hexagon with same lenght as the required regular polygon side lenght
         baseRadius=radius*6/numberOfPoints         
@@ -1547,7 +1540,7 @@ class DrawPolygonBase(ThreeDScene):
         self.play(FadeOut(disposeGroup))
         self.play(FadeOut(*d))
 
-        if fillColor!=NONE:
+        if fillColor!=None:
             self.play(p.animate.set_color(fillColor).set_opacity(1),run_time=self.default_rt)
 
         return c,p
